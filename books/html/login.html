@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body{background: url(../img/bj.jpg)no-repeat;background-size: 100%;}
+        .modal-content{width: 420px;}
+        .btn-primary{width: 390px;margin-top: 40px;}
+    </style>
+</head>
+<body>
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="gridSystemModalLabel">登录</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/login">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">用户名</label>
+                      <input name="name" class="form-control" id="exampleInputEmail1" placeholder="用户名">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">密码</label>
+                      <input name="pwd" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">登录</button>
+                  </form>
+            
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+</body>
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/login.js"></script>
+</html>

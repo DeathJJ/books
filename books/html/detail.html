@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+    <style>
+        body{background: url(../img/bj.jpg)no-repeat;background-size: 100%;}
+        div{width: 1200px;text-align: center;margin:50px auto;}
+       
+       p{font-size: 18px;line-height: 30px;text-align: justify;margin-top: 50px;}
+    </style>
+</head>
+<body>
+    <div>
+      <h3 class="title"></h3>
+      <p class="cont"></p>
+    </div>
+</body>
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+    var x=(sessionStorage['id']);
+    $.get('/detail',`hide=${x}`,(data)=>{
+        // console.log(data);
+        $('.title').html(data[0].brief);
+        $('.cont').html(data[0].content);
+    },"JSON");
+
+</script>
+</html>

@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/goods.css">
+    <link rel="stylesheet" href="./font_1896272_ygd1dmfp6w/iconfont.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+		<div class="top">
+			<div class="logo">
+				<a href="index.html"><img src="img/logo.png"></a>
+			</div>
+			<div class="line">
+				<span><a href="index.html">首页</a></span>
+				<span><a href="#">二手</a></span>
+				<span><a href="#">求购社区</a></span>
+				<span><a href="#">切换校园</a></span>
+				<span><a href="#">校园动态</a></span>
+                <span><a href="#">加入我们</a></span>
+                <span><a href="#">我的收藏</a></span>
+                <span style="display: none;" class="fb"><a href="./html/insert.html">图书发布</a></span>
+			</div>
+			
+			<!-- 登录 -->
+			<div class="btn_login">
+                <span><a href="/html/login.html" class="login">请登录</a></span>
+                <!-- <p class="iconfont iconvip"></p> -->
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#iconvip"></use>
+                  </svg>
+                
+               
+            </div>
+            <span style="float: right;cursor: pointer;" name="exit"></span>
+		</div>
+    <!-- 二手商品信息 -->
+		<div class="shoop_info">
+			<div class="nav_01 nav" id="jj">
+
+				<!-- <div class="div">
+					<div class="shoop_img img01">
+						<a href="goods_detail.html"><img src="img/d1/xyj.jpg" ></a>
+					</div>
+					<br>
+					<p>史蒂夫·乔布斯传</p>
+                    <p>作者：</p>
+                    <br>
+                    <span><a href="./html/update.html">更改</a></span>
+                    <span><a href="./html/update.html">删除</a></span>
+					<br><br>
+					<h6>￥15</h6>
+                </div> -->
+
+			</div>
+		
+</body>
+<script src="./js/jquery-1.11.3.js"></script>
+<script src="./font_1896272_ygd1dmfp6w/iconfont.js"></script>
+<script>
+    var username=sessionStorage['name'];
+    var U_vip=sessionStorage['vip'];
+    //发送ajax请求
+    $.get('/rend',(data)=>{
+        // console.log(eval(data) );
+        createbook(data);
+    },'JSON')
+
+ 
+    function createbook(data){
+        // console.log(data);
+        for(var i=0;i<data.length;i++){
+           
+            var Odiv=document.createElement('div');
+            Odiv.className="div";
+            Odiv.style.position="relative";
+
+            Odiv.setAttribute("index",data[i]['id']);
+            //书名
+            var p_name=document.createElement('p');
+            p_name.innerHTML=data[i]['name'];
+            p_name.style.color="red";
+            p_name.style.fontSize="20px";
+            //作者
+            var p_author=document.createElement('p');
+            p_author.innerHTML=data[i]['author'];
+            //单价
+            var h_price=document.createElement('h6');
+            h_price.innerHTML='￥'+data[i]['price'];
+           //该书是否为VIP
+            var b_vip=data[i]['vip'];
+            if(b_vip==1){
+                var p=document.createElement('p');
+                p.className="iconfont iconviptubiao";
+                p.style.position="absolute";
+                p.style.top="0";
+                p.style.left="0";
+                p.style.fontSize="33px";
+                p.style.zIndex=9;
+                p.style.color="yellow";
+                Odiv.setAttribute('vip',b_vip);
+                Odiv.appendChild(p);
+            }
+            //图书封面
+            var box_img=document.createElement('div');
+            box_img.className="shoop_img img01";
+            var box_a=document.createElement('a');
+            box_a.href="./html/detail.html";
+            var b_img=document.createElement('img');
+            b_img.src='img/d1/'+data[i]['url'];
+            b_img.onclick=function(){
+                // console.log(this.parentNode.parentNode.parentNode.getAttribute('index'));
+                // return;
+                sessionStorage['id']=this.parentNode.parentNode.parentNode.getAttribute('index');
+
+            }
+            box_a.appendChild(b_img);
+            box_img.appendChild(box_a);
+            //更改按钮
+            var up_sapn=document.createElement('span');
+            var up_a=document.createElement('a');
+            up_a.innerHTML="更改";
+            up_a.onclick=function(){
+                sessionStorage['id']=this.parentNode.parentNode.getAttribute('index');
+                this.setAttribute('href','./html/update.html');
+
+            }
+            up_sapn.appendChild(up_a);
+            //删除按钮
+            var del_sapn=document.createElement('span');
+            var del_a=document.createElement('a');
+            del_a.innerHTML="删除";
+            del_a.className="del";
+            del_a.onclick=function(){
+                var r = confirm("确定要删除该书吗？");
+                if (r == true) {
+                    // x = "您按了确认！";
+                    var id=(this.parentNode.parentNode.getAttribute("index"));
+                    $.get('/del',`hide=${id}`,()=>{
+                        location.reload();
+                    }) 
+                }
+                 else {
+                    // x = "您按了取消！";
+                    return;
+                 }
+            }
+            del_sapn.appendChild(del_a);
+
+            //换行
+            var br=document.createElement('br')
+
+            Odiv.appendChild(box_img);
+            Odiv.appendChild(br);
+            Odiv.appendChild(p_name);
+           
+            Odiv.appendChild(p_author);
+            Odiv.appendChild(br);
+            if(U_vip==1){
+                Odiv.appendChild(up_sapn);
+                Odiv.appendChild(del_sapn);
+            }
+           
+            Odiv.appendChild(br);
+            Odiv.appendChild(h_price);
+            $('#jj').append(Odiv);
+
+        }
+       
+    }
+   
+    // console.log(U_vip);
+//    $('.login').html(uname);
+//     if(sessionStorage['name'].length!=0){
+//         alert('登录成功');
+//         sessionStorage['name'].clear();
+//     }
+if(username!=undefined){
+    var fb=document.querySelector('.line span:nth-of-type(8)');
+    var dl=document.querySelector('[class="btn_login"] span');
+    var svg=document.querySelector('[class="btn_login"] svg');
+ 
+    var exit=document.querySelector('[name="exit"]');
+    dl.innerHTML=decodeURIComponent(username+'，欢迎您');
+    dl.style.color="red";
+    if(U_vip==1){
+        fb.style.display="block";
+        svg.style.display="inline-block";
+
+    }else{
+        svg.style.display="none";
+    }
+    exit.innerHTML="退出登录";
+    exit.style.color="blue";
+
+    exit.onclick=function(){
+        sessionStorage.clear();
+        // i="";
+        location.reload(); 
+    }
+}
+
+
+
+
+
+</script>
+</html>

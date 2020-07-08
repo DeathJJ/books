@@ -1,0 +1,153 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html,body{
+	width: 100%;
+	background: #f8f8f9;
+}
+
+.icon {
+	width: 2em;
+	height: 2em;
+	vertical-align: -0.5em;
+	fill: currentColor;
+	overflow: hidden;
+	display: none;
+
+
+  }
+.top{
+	
+	width: 100%;
+	height: 50px;
+	background: white;
+	line-height: 50px;
+	position: relative;
+	/* border: 1px solid pink; */
+	border-bottom: 1px solid darkgrey;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090, direction=120, strength=4);
+	-moz-box-shadow: 2px 2px 10px #909090;
+	-webkit-box-shadow: 2px 2px 10px #909090;
+	box-shadow: 2px 2px 10px #909090;
+	
+}
+.top .logo img{
+	position: absolute;
+	width: 150px;
+	height: 50px;
+	
+	cursor: pointer;
+}
+.top .line{
+	display: flex;
+	position: absolute;
+	left: 200px;
+}
+.top .line span a{font-size: 18px;}
+.top span{
+	margin-right: 30px;
+	
+}
+.top span:hover{
+	border-bottom: 2px solid #2D8CF0;
+}
+.top .line span:nth-of-type(2){
+	border-bottom: 2px solid #2D8CF0;
+}
+a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #4D555D;
+}
+a:hover{
+	color:#2D8CF0 ;
+}
+
+/*  */
+.top .btn_funs{
+	display: flex;
+	position: absolute;
+	right: 230px;
+}
+.top .btn_funs span a{font-size: 18px;}
+.top .btn_login{
+	position: absolute;
+	right: 120px;
+}
+.top .btn_login span{margin-right:5px;}
+
+.top .btn_login a{font-size: 18px;}
+
+
+
+/* 二手商品信息 */
+.shoop_info{
+	width: 1200px;
+	/* height: 1000px; */
+	/* background: #52D3AA; */
+	margin: 0px auto;
+	position: relative;
+	margin-top: 30px;
+}
+.shoop_info .nav{
+	width: 1200px;
+	/* height: 400px; */
+
+	
+	justify-content: space-around;
+	
+}
+.shoop_info .nav .div{
+	display: inline-block;
+	border-radius: 10px;
+	background: white;
+	width: 240px;
+	height: 425px;
+	border: 1px solid black;
+	margin-left: 40px;
+	margin-top: 20px;
+	flex-direction: column;
+}
+.shoop_info .nav .div .shoop_img{
+	overflow: hidden;
+	width:100% ;
+	height:280px ;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.shoop_info .nav .div .shoop_img img{
+	cursor: pointer;
+	width:100%;
+	height:100%;
+	transition: all 0.6s;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.shoop_info .nav .div .shoop_img img:hover{
+	transform: scale(1.1);
+}
+.shoop_info .nav .div span{
+	font-size: 12px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+.shoop_info .nav .div span:nth-of-type(1){
+	float: left;
+	
+	margin-left: 10px;
+}
+.shoop_info .nav .div span:nth-of-type(2){
+	float: right;
+	margin-right: 10px;
+
+}
+.shoop_info .nav .div h6{
+	color: red;
+	font-size: 10px;
+	margin-top: 40px;
+}
+
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body{background: url(../img/bj3.jpg)no-repeat;background-size: 100%;}
+        .modal-content{width: 440px;}
+        .btn-primary{width: 410px;margin-top: 40px;}
+    </style>
+</head>
+<body>
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="gridSystemModalLabel">发布图书</h4>
+            </div>
+            <div class="modal-body">
+                <form action='/insert'>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">书名</label>
+                        <input name="name" class="form-control" id="exampleInputEmail1" placeholder="书名">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">作者</label>
+                        <input name="author" class="form-control" id="exampleInputPassword1" placeholder="作者">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">单价</label>
+                        <input name="price" class="form-control" id="exampleInputPassword1" placeholder="单价">
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">数量</label>
+                        <input name="quantity" class="form-control" id="exampleInputPassword1" placeholder="数量">
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">简介</label>
+                        <input name="brief" class="form-control" id="exampleInputPassword1" placeholder="简介">
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">内容</label>
+                        <input name="content" class="form-control" id="exampleInputPassword1" placeholder="内容">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">是否VIP</label></br>
+                        是：<input name="vip" type="radio" value="1" >
+                        否：<input name="vip" type="radio" value="0" >
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">选择封面</label></br>
+                        <input name="url" type="file">
+                      </div>
+                    <button type="submit" class="btn btn-primary btn-block">提交</button>
+                  </form>
+            
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+</body>
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/login.js"></script>
+<script>
+  
+
+</script>
+</html>

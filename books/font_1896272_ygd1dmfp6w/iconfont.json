@@ -1,0 +1,30 @@
+{
+  "id": "1896272",
+  "name": "图书管理系统",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3362151",
+      "name": "VIP",
+      "font_class": "VIP",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "3693025",
+      "name": "vip",
+      "font_class": "vip",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "13269354",
+      "name": "vip图标",
+      "font_class": "viptubiao",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    }
+  ]
+}
